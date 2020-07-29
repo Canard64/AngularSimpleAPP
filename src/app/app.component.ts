@@ -8,12 +8,13 @@ import { GithubService} from './service/github.service';
 })
 export class AppComponent {
   title = 'SimpleAngularAPP';
- users : String[];
+  applications : String[];
 
  constructor (private githubService:GithubService){}
   getUsers()
   {
     this.githubService.getData().subscribe((data)=>{
+      this.applications = data;
       console.log(data);
     })
   }
