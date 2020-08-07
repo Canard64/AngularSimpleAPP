@@ -1,3 +1,71 @@
-<ul *ngFor="let application of applications">
-{{application.name}}     {{application.created_at}}  k
-</ul>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+   <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Numéro. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdDate">
+    <th mat-header-cell *matHeaderCellDef> Date création </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateDebut | date:'dd-MM-yyyy' }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lasttag">
+    <th mat-header-cell *matHeaderCellDef> Dernier tag </th>
+    <td mat-cell *matCellDef="let element">{{element.lasttag}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tags">
+    <th mat-header-cell *matHeaderCellDef>All tags </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-select >
+        <mat-option *ngFor="let cust of element.tags"
+                    [value]="cust.name"> {{cust.name}}
+        </mat-option>
+      </mat-select>
+      </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Lien</th>
+      <th>Last Commit</th>
+      <th>Last Tag</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let application of dataSourceInput">
+      <th></th>
+      <th>{{application.name}}</th>
+      <th>{{application.dateDebut | date}}</th>
+      <th>
+        <select>
+          <option *ngFor="let tag of application.tags">
+            {{tag.name}}
+          </option>
+        </select>
+
+     </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </tbody>
+ </table> -->
+

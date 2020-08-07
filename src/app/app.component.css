@@ -1,0 +1,53 @@
+
+.flexbox-header{
+display: flex;
+}
+.flexbox-header > div:nth-child(3){
+margin-left: auto;
+}
+
+.container{
+height: 100vh;
+display: grid;
+grid-gap:0px;
+grid-template-columns: repeat(12, 1fr);
+grid-template-rows:  10vh  auto  5vh;
+}
+
+.header{
+background-color: #360568;
+
+background: linear-gradient(81deg, rgba(2,0,36,1) 0%, rgba(54,5,104,1) 35%, rgba(0,212,255,1) 100%);
+grid-column: 1 / -1;
+display: flex;
+padding: 3vh;
+}
+
+.header > div:nth-child(3){
+  margin-left: auto;
+
+}
+
+.header > div:nth-child(2){
+  margin-left: 10ch;
+}
+
+
+.menu{
+  grid-column: 1/2;
+  background-color: #0E6BA8;
+}
+
+.content  {
+background-color: #B7D3F2;
+grid-column: 2 / -1;
+}
+
+.footer {
+background-color: #B7D3F2;
+grid-column: 1 / -1;
+}
+.footer > div:nth-child(1){
+ margin-left: 45vw;
+}
+
