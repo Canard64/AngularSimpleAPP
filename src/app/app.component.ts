@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {UiService} from './service/ui/ui.service';
 import {Router} from '@angular/router';
+import { User } from './Shared/user';
+
 
 @Component({
   selector: 'app-root',
@@ -15,17 +16,17 @@ export class AppComponent {
   darkModeActive: boolean;
 
 userEmail = 'gilles.cedric@gmail.com';
-loggedIn : boolean = true;
-sub1;
+currentUser  : User;
+isAuthenticated: boolean;
 
- constructor (public ui : UiService, public router:Router){}
+ constructor ( public router:Router){}
 
 
  toggleMenu() {
   this.showMenu = !this.showMenu;
 }
 modeToggleSwitch() {
-  this.ui.darkModeState.next(!this.darkModeActive);
+
 }
 
 ngOnDestroy() {
